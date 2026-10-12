@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+    <title>Registration - AgriConnect</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial;
+            background-color: #F1F8E9;
+        }
+
+        header {
+            background-color: #2E7D32;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #1B5E20;
+            text-align: center;
+            padding: 12px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+        }
+
+        .box {
+            background-color: white;
+            margin: 20px auto;
+            padding: 20px;
+            width: 60%;
+            border-radius: 10px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        .button {
+            background-color: #2E7D32;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #1B5E20;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+
+<!-- Language Translator -->
+<div id="google_translate_element"></div>
+
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+            {
+                pageLanguage: 'en',
+                includedLanguages: 'en,mr',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            },
+            'google_translate_element'
+        );
+    }
+</script>
+
+<script type="text/javascript"
+    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
+
+
+<body>
+
+    <header>
+
+        <h1>🌾 AgriConnect 🌾</h1>
+
+        <p>
+            Smart Information for Better Farming
+        </p>
+
+    </header>
+
+
+    <nav>
+
+        <a href="Home.html">Home</a>
+
+        <a href="about.html">About</a>
+
+        <a href="register.html">Registration</a>
+
+        <a href="crops.html">Crops</a>
+
+        <a href="prices.html">Market Prices</a>
+
+        <a href="weather.html">Weather</a>
+
+        <a href="schemes.html">Schemes</a>
+
+       	<a href="chatbot.html">Chatbot</a>
+
+
+
+    </nav>
+
+    <div class="box">
+
+        <h2 align="center">👨‍🌾 Farmer Registration</h2>
+
+        <p align="center">
+            Register to get useful farming information.
+        </p>
+
+
+      <form action="register.php" method="POST">
+
+    <label>Farmer Name:</label>
+    <input type="text" name="farmer_name" placeholder="Enter your name" required>
+
+
+    <label>Mobile Number:</label>
+    <input type="tel" name="mobile" placeholder="Enter mobile number" required>
+
+
+    <label>Village:</label>
+    <input type="text" name="village" placeholder="Enter village name" required>
+
+
+    <label>District:</label>
+    <input type="text" name="district" placeholder="Enter district name" required>
+
+
+    <label>Land Area:</label>
+    <input type="number" name="land_area" step="0.01" placeholder="Example: 2" required>
+
+
+    <label>Main Crop:</label>
+
+    <select name="main_crop" required>
+        <option value="">Select Crop</option>
+        <option>Wheat</option>
+        <option>Rice</option>
+        <option>Cotton</option>
+        <option>Soybean</option>
+        <option>Other</option>
+    </select>
+
+
+    <label>What help do you need?</label>
+
+    <select name="help_needed" required>
+        <option value="">Select Help</option>
+        <option>Crop Information</option>
+        <option>Market Price</option>
+        <option>Weather Information</option>
+        <option>Government Schemes</option>
+        <option>Farming Tips</option>
+    </select>
+
+
+    <div align="center">
+
+        <input type="submit" value="Register" class="button">
+
+        <input type="reset" value="Reset" class="button">
+
+    </div>
+
+</form>
+
+    </div>
+
+
+    <footer>
+
+        <p>AgriConnect</p>
+
+        <p>CEP Project</p>
+
+    </footer>
+
+
+</body>
+
+</html>

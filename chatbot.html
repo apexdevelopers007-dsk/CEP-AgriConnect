@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AgriConnect Chatbot</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #F1F8E9;
+        }
+
+        header {
+            background-color: #2E7D32;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav {
+            background-color: #1B5E20;
+            text-align: center;
+            padding: 12px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .chat-container {
+            width: 80%;
+            max-width: 700px;
+            margin: 30px auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .chat-box {
+            height: 350px;
+            border: 1px solid #ccc;
+            padding: 15px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            background-color: #FAFAFA;
+        }
+
+        .bot-message {
+            background-color: #E8F5E9;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+
+        .user-message {
+            background-color: #C8E6C9;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+            text-align: right;
+        }
+
+        .input-area {
+            display: flex;
+            gap: 10px;
+        }
+
+        #question {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px 18px;
+            border: none;
+            border-radius: 5px;
+            background-color: #2E7D32;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #1B5E20;
+        }
+
+        .google-button {
+            margin-top: 10px;
+            width: 100%;
+            background-color: #1B5E20;
+        }
+
+        footer {
+            background-color: #1B5E20;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<header>
+
+    <h1>🌾 AgriConnect 🌾</h1>
+
+    <p>Smart Information for Better Farming</p>
+
+</header>
+
+
+<nav>
+
+    <a href="Home.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="register.html">Register</a>
+    <a href="crops.html">Crops</a>
+    <a href="prices.html">Prices</a>
+    <a href="weather.html">Weather</a>
+    <a href="schemes.html">Schemes</a>
+    <a href="contact.html">Contact</a>
+    <a href="chatbot.html">Chatbot</a>
+
+</nav>
+
+
+<div class="chat-container">
+
+    <h2>🤖 AgriConnect Chatbot</h2>
+
+    <p>Ask your farming-related question below.</p>
+
+
+    <div class="chat-box" id="chatBox">
+
+        <div class="bot-message">
+            <b>AgriConnect Bot:</b>
+            Hello! 👋 I can help you with basic farming information.
+            You can also search your question on Google.
+        </div>
+
+    </div>
+
+
+    <div class="input-area">
+
+        <input
+            type="text"
+            id="question"
+            placeholder="Type your question..."
+            onkeydown="checkEnter(event)"
+        >
+
+        <button onclick="askBot()">Ask</button>
+
+    </div>
+
+
+    <button class="google-button" onclick="searchGoogle()">
+
+        🔎 Search this question on Google
+
+    </button>
+
+</div>
+
+
+<footer>
+
+    <p>© 2026 AgriConnect | Smart Information for Better Farming</p>
+
+</footer>
+
+
+<script>
+
+function askBot() {
+
+    let question = document.getElementById("question").value.trim();
+
+    if (question === "") {
+
+        alert("Please enter your question.");
+
+        return;
+
+    }
+
+
+    let chatBox = document.getElementById("chatBox");
+
+
+    chatBox.innerHTML +=
+        '<div class="user-message"><b>You:</b> ' +
+        question +
+        '</div>';
+
+
+    let answer =
+        "I don't have a specific answer for this question yet. " +
+        "You can click the 'Search this question on Google' button " +
+        "to find more information.";
+
+
+    let lowerQuestion = question.toLowerCase();
+
+
+    if (lowerQuestion.includes("wheat")) {
+
+        answer =
+            "Wheat is generally grown during the winter season. " +
+            "It needs suitable soil, proper irrigation and regular crop monitoring.";
+
+    }
+
+    else if (lowerQuestion.includes("rice")) {
+
+        answer =
+            "Rice generally requires sufficient water and suitable soil. " +
+            "Farmers should monitor water levels and crop health.";
+
+    }
+
+    else if (lowerQuestion.includes("cotton")) {
+
+        answer =
+            "Cotton grows well in suitable warm conditions and is commonly grown in black soil. " +
+            "Farmers should regularly monitor the crop for pests and diseases.";
+
+    }
+
+    else if (lowerQuestion.includes("soybean")) {
+
+        answer =
+            "Soybean is commonly grown during the rainy season. " +
+            "Proper soil moisture and monitoring for pests are important.";
+
+    }
+
+    else if (lowerQuestion.includes("weather")) {
+
+        answer =
+            "Weather conditions can change quickly. " +
+            "Farmers should check reliable weather information before making important farming decisions.";
+
+    }
+
+    else if (lowerQuestion.includes("scheme")) {
+
+        answer =
+            "Farmers can check official government websites for information about " +
+            "agricultural schemes, eligibility and application procedures.";
+
+    }
+
+
+    chatBox.innerHTML +=
+        '<div class="bot-message"><b>AgriConnect Bot:</b> ' +
+        answer +
+        '</div>';
+
+
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+}
+
+
+function searchGoogle() {
+
+    let question = document.getElementById("question").value.trim();
+
+
+    if (question === "") {
+
+        alert("Please enter a question first.");
+
+        return;
+
+    }
+
+
+    let googleURL =
+        "https://www.google.com/search?q=" +
+        encodeURIComponent(question);
+
+
+    window.open(googleURL, "_blank");
+
+}
+
+
+function checkEnter(event) {
+
+    if (event.key === "Enter") {
+
+        askBot();
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>
